@@ -130,16 +130,20 @@ push / pull_request ─┬─ lint  (ruff check, ruff format --check)
 
 ### Проверка pipeline (шаг 8)
 
-1. Ветка `broken-test`: в `test_create_user` ожидаемый код специально изменён на 200. По PR в `main` pipeline красный: `test` падает, `build` не запускается.
-2. Тест исправлен в той же ветке, pipeline зелёный, PR влит в `main`. После merge `build` опубликовал образ.
+1. Ветка `broken-test`: в `test_create_user` ожидаемый код специально изменён на 200. В [PR #1](https://github.com/crasavella04/python-lab7/pull/1) pipeline красный: `test` падает, `build` пропущен.
+2. Тест исправлен в той же ветке, pipeline зелёный, PR влит в `main`. После merge все три job-а прошли, `build` опубликовал образ.
 
-**Успешный pipeline:**
+**Успешный pipeline (push в `main` после merge):**
 
 ![Успешный pipeline](screenshots/ci_success.png)
 
 **«Упавший» pipeline (PR с намеренно сломанным тестом):**
 
 ![Упавший pipeline](screenshots/ci_failed.png)
+
+**PR #1: коммит со сломанным тестом ❌, коммит с исправлением ✅:**
+
+![PR #1](screenshots/ci_pr.png)
 
 ## Ответы на контрольные вопросы
 
