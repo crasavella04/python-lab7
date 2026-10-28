@@ -15,7 +15,7 @@ SQLAlchemy 2.0 async + Alembic). В этой работе к нему добав
 | Реестр | Ссылка | Как скачать |
 |---|---|---|
 | GitHub Container Registry | https://github.com/crasavella04/python-lab7/pkgs/container/python-lab7 | `docker pull ghcr.io/crasavella04/python-lab7:latest` |
-| Docker Hub | https://hub.docker.com/r/<dockerhub-user>/python-lab7 | `docker pull <dockerhub-user>/python-lab7:latest` |
+| Docker Hub | https://hub.docker.com/r/crasavella/python-lab7 | `docker pull crasavella/python-lab7:latest` |
 
 У каждого образа два тега: `latest` и `sha-<короткий хеш коммита>`.
 
@@ -119,7 +119,7 @@ push / pull_request ─┬─ lint  (ruff check, ruff format --check)
                 needs: [lint, test], только push в main
                             ▼
                          build  (docker buildx → ghcr.io/crasavella04/python-lab7
-                                              → docker.io/<dockerhub-user>/python-lab7)
+                                              → docker.io/crasavella/python-lab7)
 ```
 
 - В GHCR вход выполняется через встроенный `GITHUB_TOKEN`. Job `build` получает право `packages: write`.
